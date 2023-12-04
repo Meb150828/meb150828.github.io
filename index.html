@@ -88,7 +88,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const subscriberCount = data.items[0].statistics.subscriberCount;
-                    document.getElementById('subscriberCount').innerText = subscriberCount;
+                    document.getElementById('subscriberCount').innerText = '🔴 Subscribers: ${subscriberCount}';
                 })
                 .catch(error => console.error('Error fetching subscriber count:', error));
         }
