@@ -63,6 +63,10 @@ header {
     max-height: calc(100vh - 200px); /* Set a maximum height for the container */
 }
 
+.ad-container {
+    padding: 10px;
+}
+
 .posts-container {
     /* Create a nested container for posts */
     max-height: 100%; /* Allow it to take the full height of the .container */
