@@ -20,8 +20,8 @@
             <li><a href="#websites" class="nav-button"><span>Websites</span></a></li>
         </ul>
         <div class="header-content">
-            <p id="memberCount">Loading member count...</p>
-            <a href="" id="headerButton">Join My Discord</a>
+            <p id="subscriberCount">Loading subscriber count...</p>
+            <a href="https://www.youtube.com/channel/UCGBBbH_1K2QZ36REhTjw9HQ?sub_confirmation=1" id="headerButton">Subscribe to my YouTube</a>
         </div>
     </header>
 
@@ -49,13 +49,56 @@
             <h2>My Websites</h2>
             <a href="https://meb150828.github.io/gorillamadness/">Gorilla Madness</a>
         </div>
+
+        <div id="trailer-container"></div>
     </div>
     <footer>
         <div class="social-links">
-            <a href="" target="_blank" class="social-link">My Discord Server</a>
             <a href="https://www.youtube.com/@Mebthedev" target="_blank" class="social-link">YouTube</a>
         </div>
     </footer>
+    <script>
+        const apiKey = 'AIzaSyDL43-SnJypJ_PrZBUCEiQ9BVnDPdc8S0E';
+        const channelId = 'UCGBBbH_1K2QZ36REhTjw9HQ';
+
+        fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                const uploadsPlaylistId = data.items[0].contentDetails.relatedPlaylists.uploads;
+                
+                return fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=1&key=${apiKey}`);
+            })
+            .then(response => response.json())
+            .then(data => {
+                const videoId = data.items[0].snippet.resourceId.videoId;
+
+                document.getElementById('trailer-container').innerHTML = `
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+                `;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+
+    <script>
+        // Replace 'YOUR_API_KEY' and 'YOUR_CHANNEL_ID' with your actual API key and channel ID
+
+        // Fetch the number of subscribers for the channel
+        function fetchSubscriberCount() {
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    const subscriberCount = data.items[0].statistics.subscriberCount;
+                    document.getElementById('subscriberCount').innerText = subscriberCount;
+                })
+                .catch(error => console.error('Error fetching subscriber count:', error));
+        }
+
+        // Fetch subscriber count on page load
+        window.onload = fetchSubscriberCount;
+
+        // You can update the count at regular intervals if you want it to be dynamic
+        // setInterval(fetchSubscriberCount, 60000); // Update every 60 seconds
+    </script>
 </body>
 </html>
 
