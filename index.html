@@ -93,9 +93,6 @@
     </script>
 
     <script>
-        // Replace 'YOUR_API_KEY' and 'YOUR_CHANNEL_ID' with your actual API key and channel ID
-
-        // Fetch the number of subscribers for the channel
         function fetchSubscriberCount() {
             fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`)
                 .then(response => response.json())
@@ -106,12 +103,7 @@
                 })
                 .catch(error => console.error('Error fetching subscriber count:', error));
         }
-
-        // Fetch subscriber count on page load
         window.onload = fetchSubscriberCount;
-
-        // You can update the count at regular intervals if you want it to be dynamic
-        // setInterval(fetchSubscriberCount, 60000); // Update every 60 seconds
     </script>
 </body>
 </html>
