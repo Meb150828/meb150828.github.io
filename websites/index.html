@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meb150828 - Websites</title>
+    <link rel="icon" href="../web-icon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+</head>
+<body>
+
+<header>
+    <input type="text" class="search-bar" placeholder="Search..." oninput="filterCards()">
+  
+    <select class="category-filter" onchange="filterCardsByCategory()">
+        <option value="all">All Categories</option>
+        <option value="programming">Programming</option>
+        <option value="games">Games</option>
+        <option value="info">Info</option>
+        <option value="randomSites">Random Sites</option>\
+
+        <option value="sitesForOthers">Sites For Others</option>
+    </select>
+</header>
+<div class="wrapper">
+    <div class="container" id="cardContainer">
+    <a href="https://meb150828.github.io/" target="_blank" class="card" data-title="Main Website" data-category="info">
+        <img src="WebsitePlaceholder.png" alt="Placeholder">
+        <div class="card-content">
+        <h2>Main Website</h2>
+        <p>This is just the main website.</p>
+        <div class="category">Info</div>
+        </div>
+    </a>
+    <a href="https://meb150828.github.io/about/" target="_blank" class="card" data-title="About" data-category="info">
+        <img src="WebsitePlaceholder.png" alt="Placeholder">
+        <div class="card-content">
+        <h2>About</h2>
+        <p>The About page.</p>
+        <div class="category">Info</div>
+        </div>
+    </a>
+
+    <a href="https://meb150828.github.io/gorillamadness/" target="_blank" class="card" data-title="Gorilla Madness" data-category="sitesForOthers">
+        <img src="SiteImages/GorillaMadness.png" alt="Gorilla Madness Website Image">
+        <div class="card-content">
+        <h2>Gorilla Madness</h2>
+        <p>A website about a vr game called gorilla madness.</p>
+        <div class="category">Sites For Others</div>
+        </div>
+    </a>
+    </div>
+</div>
+<footer>
+    🤔 This is for all my webpages 😃
+</footer>
+<script>
+    function filterCards() {
+        const input = document.querySelector('.search-bar');
+        const filter = input.value.toUpperCase();
+        const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title').toUpperCase();
+        const category = card.getAttribute('data-category').toUpperCase();
+        const shouldShow = title.includes(filter) || category.includes(filter);
+        card.style.display = shouldShow ? 'block' : 'none';
+        });
+    }
+
+  function filterCardsByCategory() {
+    const categoryFilter = document.querySelector('.category-filter');
+    const selectedCategory = categoryFilter.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category').toLowerCase();
+      const shouldShow = selectedCategory === 'all' || selectedCategory === cardCategory;
+      card.style.display = shouldShow ? 'block' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
