@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Fake Banker</title>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Fake Banker</h1>
+
+        <button id="start-game-btn" onclick="startGame()">Start Game</button>
+        
+        <p id="question"></p>
+        <input type="tel" id="answer" placeholder="Type the amount">
+        <p id="score">Score: 0</p>
+        <p id="timer">Time: 60s</p>
+
+        <div id="game-over-box" style="display: none;">
+            <h2>Game Over</h2>
+            <p id="final-score">Your score: 0</p>
+            <button class="retry-button" onclick="retryGame()">Retry</button>
+        </div>
+        <div id="how-to-play-card">
+            <h2>How to Play</h2>
+            <p>Quickly input the correct dollar amounts for customer requests. Each correct answer scores a point. Try to achieve the highest score within the time limit!</p>
+            <!-- Add any additional instructions or tips here -->
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
