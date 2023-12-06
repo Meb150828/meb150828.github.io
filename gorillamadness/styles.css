@@ -2,12 +2,12 @@ body {
     font-family: 'Poor Story', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('gorilla-tag-picture.jpg');
+    background-image: url('gorilla-tag-picture.jpg'); /* Replace 'background.jpg' with your actual image file */
     background-size: cover;
     background-repeat: no-repeat;
-    color: #fff;
-    padding-top: 60px;
-    overflow: hidden;
+    color: #fff; /* Change text color to white or another color that contrasts with your background image */
+    padding-top: 60px; /* Space for the fixed header */
+    overflow: hidden; /* Hide the default scroll on the body */
 }
 
 h1 {
@@ -22,14 +22,14 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(51, 51, 51, 0.8);
+    background: rgba(51, 51, 51, 0.8); /* Adding a semi-transparent background color to the header for better readability */
     color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Space items evenly, putting the button on the right */
+    align-items: center; /* Center items vertically */
     padding: 10px;
-    z-index: 100;
-    backdrop-filter: blur(8px);
+    z-index: 100; /* Ensure the header stays above other elements */
+    backdrop-filter: blur(8px); /* Adding a blurry effect to the background */
 }
 
 .nav-bar {
@@ -45,30 +45,31 @@ header {
 
 .nav-button {
     background-color: transparent;
-    color: #fff;
+    color: #fff; /* Button text color */
     font-weight: bolder;
     font-size: 25px;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0 10px;
+    padding: 8px 16px; /* Button padding */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Add border radius for a rounded appearance */
+    cursor: pointer; /* Add pointer cursor on hover */
+    margin: 0 10px; /* Add margin to separate the buttons */
     text-decoration: none;
 }
 
 .container {
     width: 80%;
-    margin: 60px auto 20px;
-    overflow-y: auto;
-    max-height: calc(100vh - 200px);
+    margin: 60px auto 20px; /* Adjust margin to accommodate the fixed header */
+    overflow-y: auto; /* Enable vertical scroll for the container */
+    max-height: calc(100vh - 200px); /* Set a maximum height for the container */
 }
 
 .posts-container {
-    max-height: 100%;
-    padding-right: 15px;
+    /* Create a nested container for posts */
+    max-height: 100%; /* Allow it to take the full height of the .container */
+    padding-right: 15px; /* Adjust the padding as needed */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Center the posts horizontally */
 }
 
 .post {
@@ -77,7 +78,7 @@ header {
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 100%; /* Make posts take the full width of the .posts-container */
     box-sizing: border-box;
 }
 
@@ -113,7 +114,7 @@ footer {
 }
 
 .social-links .social-link:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Add an underline on hover, adjust as needed */
 }
 
 .header-content {
@@ -123,17 +124,17 @@ footer {
 }
 
 #memberCount {
-    text-align: center;
-    margin: 0;
+    text-align: center; /* Center the text horizontally */
+    margin: 0; /* Remove any default margin */
 }
 
 #headerButton {
-    background-color: #5656f2;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 10px;
+    background-color: #5656f2; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 8px 16px; /* Button padding */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Add border radius for a rounded appearance */
+    cursor: pointer; /* Add pointer cursor on hover */
+    margin-left: 10px; /* Add margin to separate the button from the member count */
     text-decoration: none;
 }
