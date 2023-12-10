@@ -1,0 +1,136 @@
+body {
+    font-family: 'Poor Story', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('Background.JPG'); /* Replace 'background.jpg' with your actual image file */
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff; /* Change text color to white or another color that contrasts with your background image */
+    padding-top: 60px; /* Space for the fixed header */
+    overflow: hidden; /* Hide the default scroll on the body */
+}
+
+h1 {
+    margin: 0px;
+    font-weight: bolder;
+    font-size: 55px;
+    text-wrap: nowrap;
+}
+
+h3 {
+    background-color: transparent;
+    color: #fa4c4c; /* Button text color */
+    font-weight: bolder;
+    text-align: center;
+    font-size: 75px;
+    padding: 8px 16px; /* Button padding */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Add border radius for a rounded appearance */
+    margin: 0 10px; /* Add margin to separate the buttons */
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(51, 51, 51, 0.8); /* Adding a semi-transparent background color to the header for better readability */
+    color: #fff;
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Space items evenly, putting the button on the right */
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+    z-index: 100; /* Ensure the header stays above other elements */
+    backdrop-filter: blur(8px); /* Adding a blurry effect to the background */
+}
+
+.nav-bar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-bar li {
+    margin-right: 0px;
+}
+
+.nav-button {
+    background-color: transparent;
+    color: #fff; /* Button text color */
+    font-weight: bolder;
+    font-size: 25px;
+    padding: 8px 16px; /* Button padding */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Add border radius for a rounded appearance */
+    margin: 0 10px; /* Add margin to separate the buttons */
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    margin: 60px auto 20px; /* Adjust margin to accommodate the fixed header */
+    overflow-y: auto; /* Enable vertical scroll for the container */
+    max-height: calc(100vh - 200px); /* Set a maximum height for the container */
+}
+
+.posts-container {
+    /* Create a nested container for posts */
+    max-height: 100%; /* Allow it to take the full height of the .container */
+    padding-right: 15px; /* Adjust the padding as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the posts horizontally */
+}
+
+.post {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Make posts take the full width of the .posts-container */
+    box-sizing: border-box;
+}
+
+.post h2 {
+    color: #333;
+}
+
+.post p {
+    color: #666;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-links .social-link {
+    font-size: 25px;
+}
+
+.social-links .social-link:hover {
+    text-decoration: underline; /* Add an underline on hover, adjust as needed */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+}
