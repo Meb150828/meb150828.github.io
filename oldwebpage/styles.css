@@ -1,0 +1,144 @@
+body {
+    font-family: 'Poor Story', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('banner.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0px;
+    font-weight: bolder;
+    font-size: 55px;
+    text-wrap: nowrap;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 50px;
+    background: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+}
+
+.nav-bar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-bar li {
+    margin-right: 0px;
+}
+
+.nav-button {
+    background-color: transparent;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 25px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    margin: 60px auto 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+}
+
+.ad-container {
+    padding: 10px;
+}
+
+.posts-container {
+    max-height: 100%;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.post h2 {
+    color: #333;
+}
+
+.post p {
+    color: #666;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-links .social-link {
+    font-size: 25px;
+}
+
+.social-links .social-link:hover {
+    text-decoration: underline;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+}
+
+#subscriberCount {
+    text-align: center;
+    margin: 0;
+}
+
+#headerButton {
+    background-color: #CD201F;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    text-decoration: none;
+}

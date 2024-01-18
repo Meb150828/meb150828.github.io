@@ -1,129 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="web-icon.png" type="image/png">
-        <title>Meb150828 - Home</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap">
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2590865863611998" crossorigin="anonymous"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Meb150828</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Monospace">
+</head>
 <body>
-
-    <header>
-        <h1>Meb150828</h1>
-        <ul class="nav-bar">
-            <li><a href="index.html" class="nav-button"><span>Home</span></a></li>
-            <li><a href="#about" class="nav-button"><span>About</span></a></li>
-            <li><a href="#links" class="nav-button"><span>Links</span></a></li>
-            <li><a href="#accounts" class="nav-button"><span>Accounts</span></a></li>
-            <li><a href="#websites" class="nav-button"><span>Websites</span></a></li>
-        </ul>
-        <div class="header-content">
-            <p id="subscriberCount">Loading subscriber count...</p>
-            <a href="https://www.youtube.com/channel/UCGBBbH_1K2QZ36REhTjw9HQ?sub_confirmation=1" id="headerButton">Subscribe to my YouTube</a>
+    <header>Hello! I'm Meb.</header>
+    <div class="user-card">
+        <img class="user-card-img" src="Images/MyUserIcon.png" alt="Meb150828 Icon">
+        <p class="user-card-username">Meb150828</p>
+        <div class="social-bar">
+            <a href="https://www.roblox.com/users/428733816/profile" target="_blank"><img src="Images/SocialLinkImages/RobloxIcon.png" alt="Roblox"></a>
+            <a href="https://youtube.com/@MebTheDev" target="_blank"><img src="Images/SocialLinkImages/YouTube.ico" alt="YouTube"></a>
+            <a href="https://www.twitch.tv/meb150828" target="_blank"><img src="Images/SocialLinkImages/TwitchLogo.png" alt="Twitch"></a>
+            <a href="https://www.tiktok.com/@meb150828" target="_blank"><img src="Images/SocialLinkImages/TikTokIcon.png" alt="TikTokIcon"></a>
+            <a href="https://github.com/Meb150828" target="_blank"><img src="Images/SocialLinkImages/GitHubLogo.png" alt="GitHub"></a>
         </div>
-    </header>
-
-    <div class="container">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2590865863611998"
-                crossorigin="anonymous"></script>
-            <!-- Banner Ad -->
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-2590865863611998"
-                data-ad-slot="4837436277"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        <div id="about" class="post">
-            <h2>About</h2>
-            <p>
-                Hello, Im Meb150828 I live in Cananda 🍁, I love coding I know Luau and Python and a little HTML and CSS
-                <br>
-                If you would like more information about why this site exists vist this link: <a href="https://meb150828.github.io/about">About this site</a>
-            </p>
-        </div>
-
-        <div id="links" class="post">
-            <h2>Links</h2>
-            <a href="https://www.roblox.com/groups/9729304/Key-Games#!/about">Roblox Group</a>
-        </div>
-
-        <div id="accounts" class="post">
-            <h2>My Accounts</h2>
-            <a href="https://www.youtube.com/@Mebthedev">YouTube</a>
-            <a href="https://www.tiktok.com/@meb150828">TikTok</a>
-            <a href="https://www.roblox.com/users/428733816/profile">Roblox</a>
-            <a href="https://www.twitch.tv/meb150828">Twitch</a>
-            <a href="https://github.com/Meb150828">GitHub</a>
-        </div>
-
-        <div id="websites" class="post">
-            <h2>Websites Page:</h2>
-            <a href="https://meb150828.github.io/websites/">Websites Page</a>
-        </div>
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2590865863611998"
-     crossorigin="anonymous"></script>
-<!-- In Posts Ad -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2590865863611998"
-     data-ad-slot="4754471955"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-        <div id="trailer-container"></div>
+        <p class="user-card-desc">
+            I'm Meb I'm from 🍁Canada, my username is 'Meb150828' but you can call me 'Meb'. I love coding, I know Luau, Python, a little CSS and HTML
+        </p>
     </div>
-    <footer>
-        <div class="social-links">
-            <a href="https://www.youtube.com/@Mebthedev" target="_blank" class="social-link">YouTube</a>
-        </div>
-    </footer>
-    <script>
-        const apiKey = 'AIzaSyDL43-SnJypJ_PrZBUCEiQ9BVnDPdc8S0E';
-        const channelId = 'UCGBBbH_1K2QZ36REhTjw9HQ';
-
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${apiKey}`)
-            .then(response => response.json())
-            .then(data => {
-                const uploadsPlaylistId = data.items[0].contentDetails.relatedPlaylists.uploads;
-                
-                return fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=1&key=${apiKey}`);
-            })
-            .then(response => response.json())
-            .then(data => {
-                const videoId = data.items[0].snippet.resourceId.videoId;
-
-                document.getElementById('trailer-container').innerHTML = `
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-                `;
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
-
-    <script>
-        function fetchSubscriberCount() {
-            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`)
-                .then(response => response.json())
-                .then(data => {
-                    const subscriberCount = data.items[0].statistics.subscriberCount;
-                    const fullText = `🔴 Subscribers: ${subscriberCount}`;
-                    document.getElementById('subscriberCount').innerText = fullText;
-                })
-                .catch(error => console.error('Error fetching subscriber count:', error));
-        }
-        window.onload = fetchSubscriberCount;
-    </script>
+    <div class="link-bar">
+        <a href="about/index.html">About</a>
+        <a href="websites/index.html">Websites</a>
+        <a href="oldwebpage/index.html">Old Webpage</a>
+    </div>
+    <footer>This is my new website design.<br>You can still go back to the old one.</footer>
 </body>
 </html>
-
-<!--Poor Story,sans-serif-->
