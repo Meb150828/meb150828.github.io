@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - KeyGames</title>
+    <link rel="stylesheet" href="../colors.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/icon">
+</head>
+<body>
+    <div class="background-blur"></div>
+    <img class="background-img" src="../img/background.png" alt="background image">
+
+    <div class="nav-bar">
+        <a href="../index.html" class="link">Home</a>
+        <a href="../index.html#about-us" class="link">About Us</a>
+        <a href="../index.html#games" class="link">Games</a>
+        <a href="../index.html#follow-us" class="link">Follow Us</a>
+        <a href="" class="link">Blog</a>
+    </div>
+
+    <div class="content">
+        <h1 class="announcement-title">Blogs</h1>
+        <div class="post">
+            <div class="post-content" id="welcome-to-our-site"></div>
+            <div class="author-bar"><span>Posted By: </span><img src="../img/meb150828-icon.png" alt="icon"><span class="author-name">Meb150828</span><span class="author-date">2024-12-29</span></div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="">&copy;KeyGames 2024</a>
+        <a href="https://meb150828.github.io" class="secondary-link">Website made by @Meb150828</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        if (typeof marked !== 'undefined') {
+            function renderMarkdown(divId) {
+                const markdownFilePath = `../blogs/${divId}.md`;
+
+                fetch(markdownFilePath)
+                    .then(response => response.text())
+                    .then(text => {
+                        const html = marked.parse(text);
+
+                        document.getElementById(divId).innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error(`Error fetching or rendering markdown for div ${divId}:`, error);
+                    });
+            }
+            const divs = document.querySelectorAll('div');
+
+            divs.forEach(div => {
+                const divId = div.id;
+                if (divId) {
+                    renderMarkdown(divId);
+                }
+            });
+        } else {
+            console.error('marked library is not loaded.');
+        }
+    </script>
+</body>
+</html>
