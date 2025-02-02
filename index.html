@@ -4,28 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Meb150828</title>
+    <link rel="icon" href="../web-icon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="colors.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Monospace">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
-    <header>Hello! I'm Meb.</header>
-    <div class="user-card">
-        <img class="user-card-img" src="Images/MyUserIcon.png" alt="Meb150828 Icon">
-        <p class="user-card-username">Meb150828</p>
-        <div class="social-bar">
-            <a href="https://www.roblox.com/users/428733816/profile" target="_blank"><img src="Images/SocialLinkImages/RobloxIcon.png" alt="Roblox"></a>
-            <a href="https://youtube.com/@MebTheDev" target="_blank"><img src="Images/SocialLinkImages/YouTube.ico" alt="YouTube"></a>
-            <a href="https://www.twitch.tv/meb150828" target="_blank"><img src="Images/SocialLinkImages/TwitchLogo.png" alt="Twitch"></a>
-            <a href="https://www.tiktok.com/@meb150828" target="_blank"><img src="Images/SocialLinkImages/TikTokIcon.png" alt="TikTokIcon"></a>
-            <a href="https://github.com/Meb150828" target="_blank"><img src="Images/SocialLinkImages/GitHubLogo.png" alt="GitHub"></a>
+    <div class="topbar">
+        <div class="navbar">
+            <a href="">Home</a>
+            <a href="/websites/">Websites</a>
+            <a href="#projects">Projects</a>
+            <a href="#open-source">Open Source</a>
         </div>
-        <p class="user-card-desc">
-            I'm Meb I'm from 🍁Canada, my username is 'Meb150828' but you can call me 'Meb'. I love coding, I know Luau, Python, a little CSS and HTML
-        </p>
     </div>
-    <div class="link-bar">
-        <a href="about/index.html">About</a>
-        <a href="websites/index.html">Websites</a>
+    <div class="hero">
+        <div class="hero-bloom"></div>
+        <h1 class="page-title kode-mono">@Meb150828</h1>
     </div>
+    <hr>
+    <div class="main-container">
+        <div id="about" class="blank-container">
+            <h3>Hello, I'm Meb150828</h3>
+            <p>
+                I love coding. I know <span class="lua-text">Lua</span>, <span class="python-text">Python</span>, <span class="css-text">CSS</span>, <span class="html-text">HTML</span>, and <span class="js-text">JavaScript</span>
+            </p>
+        </div>
+        <div class="code-block-list">
+            <div class="code-block-container">
+                <h3>Code Block</h3>
+                <pre><code class="language-javascript">console.log(`More site content coming soon!!`);</code></pre>
+            </div>
+        </div>       
+    </div>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

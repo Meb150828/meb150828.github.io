@@ -1,0 +1,67 @@
+:root {
+    /* Background and Base Colors */
+    --background: #0A0A0A;
+    --light-dark-background: #23272d;
+    --light-background: #282c34;
+    --text-primary: #E5E5E5;
+    --text-secondary: #AAAAAA;
+  
+    /* Accent Colors */
+    --accent: #FF4500;
+    --accent-hover: #FF6347;
+  
+    /* Borders and Dividers */
+    --border: #333333;
+    
+    /* State Colors */
+    --error: #D32F2F;
+    --success: #4CAF50;
+  
+    /* Links */
+    --link: #1E90FF;
+    --link-hover: #4682B4;
+  
+    /* Highlight */
+    --highlight: #FFD700;
+}
+  
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+  
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+  
+a:hover {
+  color: var(--link-hover);
+}
+
+button {
+  background-color: var(--accent);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+.error {
+  color: var(--error);
+}
+
+.success {
+  color: var(--success);
+}
+
+.highlight {
+  background-color: var(--highlight);
+  color: var(--background);
+  padding: 5px;
+}
+  

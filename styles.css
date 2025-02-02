@@ -1,100 +1,170 @@
+.kode-mono {
+    font-family: "Kode Mono", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    scrollbar-color: #576070 var(--light-dark-background);
+}
+
 body {
-    color: #fff;
-    background: linear-gradient(to bottom, #000000, #3b1b45);
-    font-family: 'font-name', monospace;
-    height: 100%;
-    min-height: 100vh;
     margin: 0;
-    background-repeat: no-repeat;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-header {
+hr {
+    border: 5px dashed var(--accent-hover);
+}
+
+.topbar {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: var(--background);
+    border-bottom: 2px dashed var(--accent-hover);
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.navbar a {
+    display: block;
     text-align: center;
-    background: rgb(15, 15, 15);
-    font-size: 50px;
-    /*backdrop-filter: blur(10px);*/
+    /*width: 150px;*/
+    height: 100%;
+    flex-grow: 1;
+    flex-basis: 0;
+    line-height: 50px;
+    color: var(--accent-hover);
+
+    background: linear-gradient(to top, var(--light-background), #00000000);
+    background-repeat: no-repeat;
+    background-size: 100% 0;
+    background-position: 0 100%;
+
+    border-bottom: 2px solid #00000000;
+
+    transition: border-bottom 250ms cubic-bezier(0.165, 0.84, 0.44, 1), background-position 500ms cubic-bezier(0.165, 0.84, 0.44, 1), background-size 1000ms cubic-bezier(0.165, 0.84, 0.44, 1), line-height 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.user-card {
-    margin-top: 20px;
+.navbar a:hover {
+    line-height: 40px;
+    background-size: 100% 100%;
+    background-position: 0 100%;
+    border-bottom: 2px solid var(--accent-hover);
+}
+
+.hero {
+    padding-top: 75px;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.page-title {
+    display: block;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    transform: translateY(-50%);
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 74px;
+    font-weight: 900;
+    color: var(--background);
+    -webkit-text-stroke: 2px var(--accent-hover);
+}
+
+.hero-bloom {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 100%;
+    background: radial-gradient(rgb(255, 99, 71, .5), #00000000, #00000000);
+    z-index: -1;
+}
+
+.main-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* LANG COLORS */
+
+.blank-container {
+    text-align: center;
+}
+
+.blank-container p {
+    font-size: 18px;
+}
+
+.blank-container p span {
+    font-weight: 900;
+}
+
+.lua-text {
+    color: #0d8ee4;
+}
+
+.python-text {
+    color: #fdf031;
+}
+
+.css-text {
+    color: #0d8ee4;
+}
+
+.html-text {
+    color: #c43e00;
+}
+
+.js-text {
+    color: #ffbb00;
+}
+
+/* CODE CONTAINERS */
+
+.code-block-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     width: 100%;
 }
 
-.user-card .user-card-img {
-    border-radius: 50%;
-    border: 5px solid #fff;
-    margin: auto;
-    display: block;
-    background: rgb(15, 15, 15);
-}
-
-.user-card-username {
-    text-align: center;
-    font-size: 35px;
-    font-weight: 900;
-    margin: 0;
-}
-
-.social-bar {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-.social-bar a {
-    border-radius: 8px;
-    background-color: #000;
-    width: 35px;
-    height: 35px;
-    margin: 0 5px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-}
-
-.social-bar a img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.user-card-desc {
-    margin: auto;
-    max-width: 75%;
-    text-align: center;
-}
-
-#gameList {
-    max-width: 600px;
-    margin: auto;
-}
-  
-.game-item {
-    margin-bottom: 20px;
+.code-block-container {
     padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--light-background);
+    border-radius: 20px;
+    border: 2px solid var(--accent-hover);
 }
 
-.link-bar {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-.link-bar a {
-    color: #fff;
-    font-weight: bolder;
-    margin: 0 5px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-}
-
-footer {
+.code-block-container h3 {
+    margin: auto;
     text-align: center;
+}
+
+.code-block-container pre {
+    text-align: left;
+}
+
+.code-block-container code {
+    background: var(--light-dark-background);
+    border-radius: 10px;
+    border: 1px solid var(--accent-hover);
 }
