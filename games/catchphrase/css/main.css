@@ -1,5 +1,7 @@
 /* MAIN STYLE */
 
+/* Last color: #948979 */
+
 * {
   -webkit-user-select: none;
   -webkit-touch-callout: none;
@@ -187,7 +189,7 @@ body {
 .score-btn {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 25px;
     background-color: #191d24;
     aspect-ratio: 1;
     color: #DFD0B8;

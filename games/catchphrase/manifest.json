@@ -1,0 +1,16 @@
+{
+    "name": "Catch Phrase",
+    "short_name": "CatchPhrase",
+    "start_url": "/games/catchphrase",
+    "display": "fullscreen",
+    "orientation": "landscape",
+    "background_color": "#222831",
+    "theme_color": "#222831",
+    "icons": [
+        {
+            "src": "./assets/img/icon.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ]
+}
