@@ -1,5 +1,21 @@
 /* MAIN STYLE */
 
+* {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+html, body {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
     background-color: #222831;
     color: #DFD0B8;
@@ -173,6 +189,7 @@ body {
     height: 50px;
     border-radius: 50%;
     background-color: #191d24;
+    aspect-ratio: 1;
     color: #DFD0B8;
     font-size: 40px;
     border: 3px solid #DFD0B8;
