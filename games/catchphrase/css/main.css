@@ -156,11 +156,35 @@ body {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 35%;
+    width: 0%;
     height: 100%;
     border-radius: 15px;
 
     background-color: #6b8eff;
+}
+
+.restart-game-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 18px;
+    background-color: #ff706b;
+    color: #191d24;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 5px solid #191d24;
+
+    transition: transform 250ms ease;
+}
+
+.restart-game-btn:hover {
+    cursor: pointer;
+}
+
+.restart-game-btn:active {
+    transform: scale(.9);
 }
 
 /* TEAM STYLE */
@@ -189,6 +213,8 @@ body {
 .score-btn {
     width: 50px;
     height: 50px;
+    max-width: 50px;
+    max-height: 50px;
     border-radius: 25px;
     background-color: #191d24;
     aspect-ratio: 1;
@@ -211,4 +237,64 @@ body {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
+}
+
+/* LOSE CONTAINER STYLE */
+
+.lose-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #191d24;
+    padding: 20px;
+    border-radius: 20px;
+    z-index: 20;
+}
+
+.lose-container-darken {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000c4;
+    z-index: 15;
+}
+
+.lose-container h1 {
+    margin: 0;
+    font-size: 48px;
+    color: #ff706b;
+}
+
+.lose-container-subtext {
+    margin: 0;
+    font-size: 28px;
+}
+
+.lose-container-maintext {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    background-color: #222831;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.lose-container button {
+    width: 150px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 12px;
+    background-color: #6bff75;
+    color: #191d24;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 5px solid #101216;
 }

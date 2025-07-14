@@ -17,44 +17,83 @@
 <body>
     <div class="container home-container" id="home">
         <h1>Catch Phrase</h1>
-        <button onclick="PlayClickSound()" id="play-btn">Play!</button>
+        <button id="play-btn" class="click-sound">Play!</button>
     </div>
 
     <div class="container game-container" id="game">
+        <div class="lose-container-darken" id="lose-container-darken"></div>
+        <div class="lose-container" id="lose-container">
+            <h1>You lost</h1>
+            <p class="lose-container-subtext">The potato got too hot</p>
+            <p class="lose-container-maintext">Press continue and give the other team a point</p>
+            <button onclick="CloseLoseContainer()">Continue</button>
+        </div>
+
         <div class="game-content">
             <div class="game-header">
                 <h3>Your word is:</h3>
-                <h1 class="game-word" id="game-word">Test Word!!</h1>
+                <h1 class="game-word" id="game-word">Loading...</h1>
             </div>
-            <button onclick="PlayClickSound()" class="game-skip-btn" id="skip-btn">Skip Word</button>
-            <button onclick="PlayClickSound()" class="game-correct-btn" id="correct-btn">Correct</button>
+            <button class="game-skip-btn click-sound" id="skip-btn">Skip Word</button>
+            <button class="game-correct-btn click-sound" id="correct-btn">Correct</button>
         </div>
+        <button onclick="RestartGame()" class="restart-game-btn click-sound">Restart</button>
         <div class="progress-bar">
             <div id="progress-bar"></div>
         </div>
+
         <div class="team-container team1">
             <h4>Team 1 Score</h4>
             <span id="team1-score">0</span>
-            <button onclick="PlayClickSound(); AddT1Score(1)" class="score-btn">+</button>
-            <button onclick="PlayClickSound(); AddT1Score(-1)" class="score-btn">-</button>
+            <button onclick="AddT1Score(1)" class="score-btn click-sound">+</button>
+            <button onclick="AddT1Score(-1)" class="score-btn click-sound">-</button>
         </div>
         <div class="team-container team2">
             <h4>Team 2 Score</h4>
             <span id="team2-score">0</span>
-            <button onclick="PlayClickSound(); AddT2Score(1)" class="score-btn">+</button>
-            <button onclick="PlayClickSound(); AddT2Score(-1)" class="score-btn">-</button>
+            <button onclick="AddT2Score(1)" class="score-btn click-sound">+</button>
+            <button onclick="AddT2Score(-1)" class="score-btn click-sound">-</button>
         </div>
     </div>
 
     <audio id="ClickSound" src="assets/audio/click.mp3" preload="auto"></audio>
+    <audio id="CorrectSound" src="assets/audio/correct.mp3" preload="auto"></audio>
 
     <script src="js/main.js"></script>
     <script>
+        function RestartGame() {
+            if (confirm("Are you sure you want to restart the game?")) {
+                location.reload()
+            }
+        }
+        const loseContainer = document.getElementById("lose-container")
+        const loseContainerDarken = document.getElementById("lose-container-darken")
+        function CloseLoseContainer() {
+            loseContainer.style.display = "none"
+            loseContainerDarken.style.display = "none"
+        }
         function PlayClickSound() {
             const Audio = document.getElementById("ClickSound");
             Audio.currentTime = 0;
             Audio.play();
         }
+        const clickSoundElements = document.querySelectorAll(".click-sound")
+        clickSoundElements.forEach(element => {
+            element.addEventListener("touchstart", () => {
+                PlayClickSound()
+            }, {passive: true})
+        });
+
+        function PlayWinSound() {
+            const Audio = document.getElementById("CorrectSound");
+            Audio.currentTime = 0;
+            Audio.play();
+        }
+        const correctButton = document.getElementById("correct-btn")
+        var correctDebounce = false
+        correctButton.addEventListener("touchstart", () => {
+                PlayWinSound()
+            }, {passive: true})
         var t1Score = 0
         var t2Score = 0
         function AddT1Score(amount) {
