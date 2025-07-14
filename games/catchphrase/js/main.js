@@ -26,7 +26,7 @@ async function startTimer(progressBar) {
     }
     timerStarted = true
     timeUp = false
-    const maxTime = 10
+    const maxTime = 90
     var time = 0
 
     while(time < maxTime) {
