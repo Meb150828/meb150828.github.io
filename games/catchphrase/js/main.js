@@ -20,23 +20,36 @@ async function getRandomWord(AlreadyPlayedWords) {
 
 var timeUp = false
 var timerStarted = false
-async function startTimer(progressBar) {
+var redBgVar = false
+async function startTimer(progressBar, Body) {
     if (timerStarted) {
         return
     }
     timerStarted = true
     timeUp = false
-    const maxTime = 90
+    const maxTime = 90 // default 90
     var time = 0
 
     while(time < maxTime) {
         time += 1
         let barPercentage = (time / maxTime) * 100
         progressBar.style.width = `${barPercentage}%`
+
+        if (maxTime-time <= 15) {
+            if (redBgVar) {
+                Body.className = "red-bg"
+                redBgVar = false
+            } else {
+                Body.className = ""
+                redBgVar = true
+            }
+        }
         await sleep(1000)
     }
     timeUp = true
     timerStarted = false
+    redBgVar = false
+    Body.className = ""
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -54,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const correct = document.getElementById("correct-btn")
 
     const progressBar = document.getElementById("progress-bar")
+    const Body = document.body
 
     const loseContainer = document.getElementById("lose-container")
     const loseContainerDarken = document.getElementById("lose-container-darken")
@@ -68,8 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Yes")
                 hasClicked = false
                 gameData["Started"] = true
+                gameData["AlreadyPlayedWords"] = []
                 correct.innerText = "Correct"
-                startTimer(progressBar)
+                startTimer(progressBar, Body)
                 break
             }
             await sleep(50)
@@ -85,15 +100,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (randomWord) {
                 gameWord.innerText = randomWord
             }
-            console.log(hasClicked)
-            while(hasClicked == false) {
+            while(true) {
                 if (timeUp) {
                     break
                 }
                 if (hasClicked) {
-                    if (correctClicked) {
-                        gameData["AlreadyPlayedWords"][randomWord]
-                        console.log(gameData["AlreadyPlayedWords"])
+                    if (correctClicked == true) {
+                        console.log(gameData["AlreadyPlayedWords"], "Wow")
+                        gameData["AlreadyPlayedWords"].push(randomWord)
                         correctClicked = false
                     }
                     hasClicked = false

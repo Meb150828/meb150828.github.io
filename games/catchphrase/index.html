@@ -35,7 +35,7 @@
                 <h1 class="game-word" id="game-word">Loading...</h1>
             </div>
             <button class="game-skip-btn click-sound" id="skip-btn">Skip Word</button>
-            <button class="game-correct-btn click-sound" id="correct-btn">Correct</button>
+            <button class="game-correct-btn" id="correct-btn">Correct</button>
         </div>
         <button onclick="RestartGame()" class="restart-game-btn click-sound">Restart</button>
         <div class="progress-bar">
@@ -72,28 +72,36 @@
             loseContainer.style.display = "none"
             loseContainerDarken.style.display = "none"
         }
-        function PlayClickSound() {
-            const Audio = document.getElementById("ClickSound");
-            Audio.currentTime = 0;
-            Audio.play();
-        }
-        const clickSoundElements = document.querySelectorAll(".click-sound")
-        clickSoundElements.forEach(element => {
-            element.addEventListener("touchstart", () => {
-                PlayClickSound()
-            }, {passive: true})
-        });
+        (async () => {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const data_buf = await fetch("assets/audio/click.mp3")
+                .then( resp => resp.arrayBuffer() );
+            const audio_buf = await ctx.decodeAudioData(data_buf);
 
-        function PlayWinSound() {
-            const Audio = document.getElementById("CorrectSound");
-            Audio.currentTime = 0;
-            Audio.play();
-        }
-        const correctButton = document.getElementById("correct-btn")
-        var correctDebounce = false
-        correctButton.addEventListener("touchstart", () => {
-                PlayWinSound()
+            const clickSoundElements = document.querySelectorAll(".click-sound")
+            clickSoundElements.forEach(element => {
+                element.addEventListener("touchstart", (evt) => {
+                    const source = ctx.createBufferSource();
+                    source.buffer = audio_buf;
+                    source.connect(ctx.destination);
+                    source.start(0);
+                }, {passive: true})
+            });
+
+            const ctx0 = new (window.AudioContext || window.webkitAudioContext)();
+            const data_buf0 = await fetch("assets/audio/correct.mp3")
+                .then( resp => resp.arrayBuffer() );
+            const audio_buf0 = await ctx0.decodeAudioData(data_buf0);
+
+            const correctButton = document.getElementById("correct-btn")
+            var correctDebounce = false
+            correctButton.addEventListener("touchstart", (evt) => {
+                const source = ctx0.createBufferSource();
+                source.buffer = audio_buf0;
+                source.connect(ctx0.destination);
+                source.start(0);
             }, {passive: true})
+        })();
         var t1Score = 0
         var t2Score = 0
         function AddT1Score(amount) {
