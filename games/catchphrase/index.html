@@ -72,36 +72,28 @@
             loseContainer.style.display = "none"
             loseContainerDarken.style.display = "none"
         }
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        let ClickBuffer, CorrectBuffer;
+
         (async () => {
-            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-            const data_buf = await fetch("assets/audio/click.mp3")
-                .then( resp => resp.arrayBuffer() );
-            const audio_buf = await ctx.decodeAudioData(data_buf);
-
-            const clickSoundElements = document.querySelectorAll(".click-sound")
-            clickSoundElements.forEach(element => {
-                element.addEventListener("touchstart", (evt) => {
-                    const source = ctx.createBufferSource();
-                    source.buffer = audio_buf;
-                    source.connect(ctx.destination);
-                    source.start(0);
-                }, {passive: true})
-            });
-
-            const ctx0 = new (window.AudioContext || window.webkitAudioContext)();
-            const data_buf0 = await fetch("assets/audio/correct.mp3")
-                .then( resp => resp.arrayBuffer() );
-            const audio_buf0 = await ctx0.decodeAudioData(data_buf0);
-
-            const correctButton = document.getElementById("correct-btn")
-            var correctDebounce = false
-            correctButton.addEventListener("touchstart", (evt) => {
-                const source = ctx0.createBufferSource();
-                source.buffer = audio_buf0;
-                source.connect(ctx0.destination);
-                source.start(0);
-            }, {passive: true})
+            ClickBuffer = await fetch("assets/audio/click.mp3").then(resp => resp.arrayBuffer()).then(buf => ctx.decodeAudioData(buf));
+            CorrectBuffer = await fetch("assets/audio/correct.mp3").then(resp => resp.arrayBuffer()).then(buf => ctx.decodeAudioData(buf));
         })();
+
+        function playSound(buffer) {
+            if (ctx.state === "suspended") ctx.resume();
+            const source = ctx.createBufferSource();
+            source.buffer = buffer;
+            source.connect(ctx.destination);
+            source.start(0);
+        }
+
+        document.querySelectorAll(".click-sound").forEach(element => {
+            element.addEventListener("touchstart", () => playSound(ClickBuffer), { passive: true });
+        });
+
+        document.getElementById("correct-btn").addEventListener("touchstart", () => playSound(CorrectBuffer), { passive: true });
+
         var t1Score = 0
         var t2Score = 0
         function AddT1Score(amount) {
