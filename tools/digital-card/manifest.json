@@ -1,0 +1,16 @@
+{
+    "name": "Digital Card",
+    "short_name": "DigitalCard",
+    "start_url": "/tools/digital-card",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "background_color": "#BBDCE5",
+    "theme_color": "#D9C4B0",
+    "icons": [
+        {
+            "src": "./img/app-icon.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+body {
+    background-color: #BBDCE5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 65px;
+    font-weight: 700;
+    color: #fdfff3;
+    -webkit-text-stroke: 2px #3a3a37;
+    font-family: "Patrick Hand", cursive;
+}
+
+img {
+    overflow: hidden;
+    border-radius: 40px;
+}
