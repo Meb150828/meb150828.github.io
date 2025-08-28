@@ -14,7 +14,11 @@ h1 {
     font-weight: 700;
     color: #fdfff3;
     -webkit-text-stroke: 2px #3a3a37;
-    font-family: "Patrick Hand", cursive;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
 }
 
 img {

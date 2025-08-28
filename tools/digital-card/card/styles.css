@@ -1,6 +1,10 @@
 body {
     background-color: #BBDCE5;
-    font-family: "Patrick Hand", cursive;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -21,8 +25,7 @@ body {
     text-align: center;
     font-size: 50px;
     font-weight: 700;
-    color: #fdfff3;
-    -webkit-text-stroke: 2px #3a3a37;
+    color: #3a3a37;
 }
 
 .header p {
@@ -60,8 +63,11 @@ body {
     color: #3a3a37;
     text-decoration: none;
     font-size: 24px;
-    font-family: "Patrick Hand", cursive;
+    font-family: "Fredoka", sans-serif;
     font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
 
     display: flex;
     align-items: center;
