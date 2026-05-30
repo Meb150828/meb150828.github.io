@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.8, maximum-scale=1.0, user-scalable=yes">
+    <title>Catch Phrase Game</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Roboto+Condensed:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- Moblie Download Settings -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+
+<body>
+    <div class="container home-container" id="home">
+        <h1>Catch Phrase</h1>
+        <button id="main-play-btn" class="click-sound">Play!</button>
+    </div>
+
+    <div class="container game-options-container" id="options">
+        <h1>Game Options <p>Choose categories to exclude</p></h1>
+        <div class="game-options">
+            <button class="game-option-button">Hello</button>
+            <button class="game-option-button">Hello 1</button>
+            <button class="game-option-button">Hello 2</button>
+        </div>
+        <button id="play-btn" class="click-sound">Play</button>
+    </div>
+
+    <div class="container game-container" id="game">
+        <div class="lose-container-darken" id="lose-container-darken"></div>
+        <div class="lose-container" id="lose-container">
+            <h1>You lost</h1>
+            <p class="lose-container-subtext">The potato got too hot</p>
+            <p class="lose-container-maintext">Press continue and give the other team a point</p>
+            <button onclick="CloseLoseContainer()">Continue</button>
+        </div>
+
+        <div class="game-content">
+            <div class="game-header">
+                <h3>Your word is:</h3>
+                <h1 class="game-word" id="game-word">Loading...</h1>
+            </div>
+            <button class="game-skip-btn click-sound" id="skip-btn">Skip Word</button>
+            <button class="game-correct-btn" id="correct-btn">Correct</button>
+        </div>
+        <button onclick="RestartGame()" class="restart-game-btn click-sound">Restart</button>
+        <div class="progress-bar">
+            <div id="progress-bar"></div>
+        </div>
+
+        <div class="team-container team1">
+            <h4>Team 1 Score</h4>
+            <span id="team1-score">0</span>
+            <button onclick="AddT1Score(1)" class="score-btn click-sound">+</button>
+            <button onclick="AddT1Score(-1)" class="score-btn click-sound">-</button>
+        </div>
+        <div class="team-container team2">
+            <h4>Team 2 Score</h4>
+            <span id="team2-score">0</span>
+            <button onclick="AddT2Score(1)" class="score-btn click-sound">+</button>
+            <button onclick="AddT2Score(-1)" class="score-btn click-sound">-</button>
+        </div>
+    </div>
+
+    <audio id="ClickSound" src="assets/audio/click.mp3" preload="auto"></audio>
+    <audio id="CorrectSound" src="assets/audio/correct.mp3" preload="auto"></audio>
+
+    <script src="js/main.js"></script>
+    <script>
+        function RestartGame() {
+            if (confirm("Are you sure you want to restart the game?")) {
+                location.reload()
+            }
+        }
+        const loseContainer = document.getElementById("lose-container")
+        const loseContainerDarken = document.getElementById("lose-container-darken")
+        function CloseLoseContainer() {
+            loseContainer.style.display = "none"
+            loseContainerDarken.style.display = "none"
+        }
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        let ClickBuffer, CorrectBuffer;
+
+        (async () => {
+            ClickBuffer = await fetch("assets/audio/click.mp3").then(resp => resp.arrayBuffer()).then(buf => ctx.decodeAudioData(buf));
+            CorrectBuffer = await fetch("assets/audio/correct.mp3").then(resp => resp.arrayBuffer()).then(buf => ctx.decodeAudioData(buf));
+        })();
+
+        function playSound(buffer) {
+            if (ctx.state === "suspended") ctx.resume();
+            const source = ctx.createBufferSource();
+            source.buffer = buffer;
+            source.connect(ctx.destination);
+            source.start(0);
+        }
+
+        document.querySelectorAll(".click-sound").forEach(element => {
+            element.addEventListener("touchstart", () => playSound(ClickBuffer), { passive: true });
+        });
+
+        document.getElementById("correct-btn").addEventListener("touchstart", () => playSound(CorrectBuffer), { passive: true });
+
+        var t1Score = 0
+        var t2Score = 0
+        function AddT1Score(amount) {
+            const score = document.getElementById("team1-score")
+            t1Score+=amount
+            if (t1Score <= 0) {
+                t1Score = 0
+            } else if (t1Score > 9) {
+                t1Score = 9
+            }
+            score.innerText = t1Score
+        }
+        function AddT2Score(amount) {
+            const score = document.getElementById("team2-score")
+            t2Score+=amount
+            if (t2Score <= 0) {
+                t2Score = 0
+            } else if (t2Score > 9) {
+                t2Score = 9
+            }
+            score.innerText = t2Score
+        }
+    </script>
+</body>
+
+</html>
